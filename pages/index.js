@@ -1,5 +1,5 @@
 function Home() {
-    return "O que você foca, expande!"
-};
+  return "O que você foca, expande!";
+}
 
 export default Home;
