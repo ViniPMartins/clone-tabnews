@@ -4,8 +4,10 @@
   "description": "Repositório de estudo do curso curso.dev do Filipe Deschamps",
   "main": "index.js",
   "scripts": {
-    "dev": "docker compose -f infra/compose.yaml up -d && next dev",
-    "dev:down": "docker compose -f infra/compose.yaml down",
+    "dev": "npm run services:up && next dev",
+    "services:up": "docker compose -f infra/compose.yaml up -d",
+    "services:stop": "docker compose -f infra/compose.yaml stop",
+    "services:down": "docker compose -f infra/compose.yaml down",
     "lint:check": "prettier --check .",
     "lint:write": "prettier --write .",
     "test": "jest",
