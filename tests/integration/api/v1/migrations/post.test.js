@@ -8,7 +8,7 @@ async function clearDatabase() {
 
 test("POST to api/v1/migration should return 200", async () => {
   const responseBeforeMigrations = await fetch(
-    "http://localhost:3000/api/v1/migration",
+    "http://localhost:3000/api/v1/migrations",
     {
       method: "POST",
     },
@@ -19,7 +19,7 @@ test("POST to api/v1/migration should return 200", async () => {
   expect(Array.isArray(responseBodyBeforeMigrations)).toBe(true);
 
   const responseAfterMigrations = await fetch(
-    "http://localhost:3000/api/v1/migration",
+    "http://localhost:3000/api/v1/migrations",
     {
       method: "POST",
     },
