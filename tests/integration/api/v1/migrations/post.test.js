@@ -6,8 +6,6 @@ beforeAll(async () => {
   await database.query("drop schema public cascade; create schema public;");
 });
 
-async function clearDatabase() {}
-
 test("POST to api/v1/migration should return 200", async () => {
   const responseBeforeMigrations = await fetch(
     "http://localhost:3000/api/v1/migrations",
