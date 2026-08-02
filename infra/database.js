@@ -6,10 +6,11 @@ async function query(objectQuery) {
     client = await getNewClient();
     const result = await client.query(objectQuery);
     return result;
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
+    throw error;
   } finally {
-    await client.end();
+    await client?.end();
   }
 }
 
