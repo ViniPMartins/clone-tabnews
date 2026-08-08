@@ -56,3 +56,43 @@ export class ServiceError extends Error {
     };
   }
 }
+
+export class ValidationError extends Error {
+  constructor({ cause, message, action }) {
+    super(message || "Erro de validação de dados", {
+      cause,
+    });
+    this.name = "ValidationError";
+    this.action = action || "Verifique se os dados enviados estão corretos";
+    this.statusCode = 400;
+  }
+
+  toJSON() {
+    return {
+      name: this.name,
+      message: this.message,
+      action: this.action,
+      status_code: this.statusCode,
+    };
+  }
+}
+
+export class NotFoundError extends Error {
+  constructor({ cause, message, action }) {
+    super(message || "Informação não encontrada", {
+      cause,
+    });
+    this.name = "NotFoundError";
+    this.action = action || "Verifique se os dados enviados estão corretos";
+    this.statusCode = 404;
+  }
+
+  toJSON() {
+    return {
+      name: this.name,
+      message: this.message,
+      action: this.action,
+      status_code: this.statusCode,
+    };
+  }
+}
